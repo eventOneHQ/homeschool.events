@@ -1,5 +1,5 @@
 # homeschool.events
-The future home of homeschool.events. A database of homeschool events. 
+The future home of [homeschool.events](https://homeschool.events). A database of homeschool events. 
 
 ### Conventions
 |Event|Date|Location|
