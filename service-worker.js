@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.baa98852c726d634d25567ef6639a640.js"
+  "/precache-manifest.9333fe36bf5f8b8488ad9b97d4f7c86b.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "homeschool.events"});
