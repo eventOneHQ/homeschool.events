@@ -22,5 +22,9 @@ self.__precacheManifest = [
   {
     "revision": "a9c5cc9fe5199ec6a31c",
     "url": "/css/chunk-vendors.42a34ff4.css"
+  },
+  {
+    "revision": "174e7ed83b43d18cf66d651f0463578b",
+    "url": "/CNAME"
   }
 ];
