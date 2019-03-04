@@ -1,7 +1,7 @@
 # homeschool.events
 The future home of [homeschool.events](https://homeschool.events). A database of homeschool events. 
 
-### Conventions
+## Events
 
 | Event | Date | Location |
 | ----- | ---- | -------- |
@@ -12,3 +12,28 @@ The future home of [homeschool.events](https://homeschool.events). A database of
 | [2019 CHAP Convention](https://conv.chaponline.com/) | June 14-15, 2019 | Lancaster, PA |
 
 _Created by [eventOne](https://e1.lc/tAfSUQ)_.
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Run your tests
+```
+npm run test
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
