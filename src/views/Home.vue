@@ -49,7 +49,7 @@ export default {
     }
   },
   computed: {
-    filteredList() {
+    filteredList () {
       return this.events.filter(event => {
         const includes = (text) => {
           if (text) {

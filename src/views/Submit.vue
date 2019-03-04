@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import Datepicker from 'vuejs-datepicker';
+import Datepicker from 'vuejs-datepicker'
 
 import { states } from '../states'
 
@@ -54,8 +54,8 @@ export default {
     Datepicker
   },
   methods: {
-    submitEvent() {
-      console.log(this.event)
+    submitEvent () {
+      // console.log(this.event)
     }
   },
   data: () => {
