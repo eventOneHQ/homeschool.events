@@ -53,7 +53,7 @@ export default {
       return this.events.filter(event => {
         const includes = (text) => {
           if (text) {
-            return text.toLowerCase().includes(this.searchText)
+            return text.toLowerCase().includes(this.searchText.toLowerCase())
           }
           return false
         }
