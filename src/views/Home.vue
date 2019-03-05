@@ -60,6 +60,11 @@ export default {
           sortable: true
         },
         {
+          label: 'Type',
+          key: 'type',
+          sortable: true
+        },
+        {
           label: 'Start Date',
           key: 'startDate',
           sortable: true
