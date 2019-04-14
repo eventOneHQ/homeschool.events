@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col">
+    <p class="mt-2"></p>
+    <div class="jumbotron text-center">
+      <h1 class="display-4">homeschool.events</h1>
+      <p class="lead">A database of homeschool events.</p>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          id="search"
+          placeholder="Search..."
+          [formControl]="filter"
+        />
+      </div>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col">City</th>
+          <th scope="col">State</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of (events$ | async); index as i">
+          <th scope="row">
+            <a [href]="event.url">
+              <ngb-highlight [result]="event.name" [term]="filter.value">
+              </ngb-highlight>
+            </a>
+          </th>
+          <td>
+            {{ event.type }}
+          </td>
+          <td>{{ event.startDate | date: 'longDate' }}</td>
+          <td>{{ event.endDate | date: 'longDate' }}</td>
+          <td>
+            <ngb-highlight [result]="event.location.city" [term]="filter.value">
+            </ngb-highlight>
+          </td>
+          <td>
+            <ngb-highlight
+              [result]="event.location.state"
+              [term]="filter.value"
+            >
+            </ngb-highlight>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
