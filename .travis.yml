@@ -3,6 +3,7 @@ node_js:
   - "10"
 script:
   - cd client
+  - npm ci
   - npm run build --prod
 deploy:
   provider: pages
