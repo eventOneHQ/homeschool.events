@@ -1,0 +1,60 @@
+<header>
+  <div class="row mt-3">
+    <div class="col">
+      <h1 class="display-4">homeschool.events</h1>
+      <p class="lead">A database of homeschool events</p>
+
+      <a [routerLink]="['/submit']" class="btn btn-primary btn-raised">
+        Submit an event
+      </a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <input
+        type="text"
+        class="form-control mt-3"
+        id="search"
+        placeholder="Search..."
+        [formControl]="filter"
+      />
+    </div>
+  </div>
+</header>
+
+<div class="row mb-5">
+  <div
+    class="col-md-4 col-sm-6 col-xs-12 mb-4"
+    *ngFor="let event of events$ | async; index as i"
+  >
+    <div class="card h-100 text-center event-card">
+      <a
+        [href]="event.url"
+        class="card-body p-4 event-link h-100 d-flex flex-column justify-content-between align-items-center"
+      >
+        <img
+          [src]="event.logo"
+          [alt]="event.name + ' logo'"
+          class="event-logo"
+          (error)="img.src = defaultImg"
+          #img
+        />
+
+        <h5 class="card-title">
+          {{ event.name }}
+        </h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          {{ event.startDate | date: 'MMM d' }} -
+          {{ event.endDate | date: 'mediumDate' }}
+          - <b>{{ event.type }}</b>
+        </h6>
+
+        <p class="card-text">
+          {{ event.location.city }},
+          {{ event.location.state }}
+        </p>
+      </a>
+    </div>
+  </div>
+</div>

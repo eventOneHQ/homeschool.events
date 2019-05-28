@@ -1,12 +1,13 @@
 export interface Event {
   name: string
   url: string
+  logo?: string
   startDate: string
   endDate: string
   type: string
   location: {
-    city: string
-    state: string
+    city: string;
+    state: string;
   }
 }
 
