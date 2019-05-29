@@ -18,7 +18,7 @@
     "server:dev": "nodemon server.app",
     "server:lint": "eslint server",
     "start": "npm run server:start",
-    "build": "npm run client:build",
+    "build": "npm run client:build -- --prod",
     "lint": "npm run client:lint; npm run server:lint"
   },
   "dependencies": {
