@@ -22,6 +22,8 @@ app.use(helmet())
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors())
 
+console.log('dist', config.dist)
+
 // serve static files
 app.use(express.static(config.dist))
 app.use(/^((?!(api)).)*/, (req, res) => {
