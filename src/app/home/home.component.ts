@@ -53,6 +53,10 @@ export class HomeComponent implements OnInit {
     this.getData()
   }
 
+  sortAscDate(a, b) {
+    return (new Date(a) as any) - (new Date(b) as any)
+  }
+
   getData() {
     this.api.getEvents().subscribe((events: Event[]) => {
       // filter out past events
@@ -65,10 +69,7 @@ export class HomeComponent implements OnInit {
 
       // sort by start date
       this.events = this.events.sort((a, b) => {
-        return (
-          (new Date(parseFloat(b.startDate)) as any) -
-          (new Date(parseFloat(a.startDate)) as any)
-        )
+        return this.sortAscDate(a.startDate, b.startDate)
       })
 
       this.events$ = this.filter.valueChanges.pipe(
