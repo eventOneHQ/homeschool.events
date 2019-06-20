@@ -1,3 +1,4 @@
+import { ApiService } from './../api.service'
 import { Component, OnInit } from '@angular/core'
 import { states } from '../states'
 
@@ -7,6 +8,8 @@ import {
   Validators,
   AbstractControl
 } from '@angular/forms'
+
+declare const grecaptcha
 
 @Component({
   selector: 'app-submit',
@@ -26,24 +29,39 @@ export class SubmitComponent implements OnInit {
   city: AbstractControl
   state: AbstractControl
 
-  constructor() {
+  constructor(private api: ApiService) {
     this.states = states
   }
 
   onSubmit() {
-    console.log(this.form.value)
+    grecaptcha.ready(() => {
+      grecaptcha
+        .execute('6LdE3qkUAAAAAMdrfrIRC9GtY6y5YAqtJc28HbU9', {
+          action: 'eventSubmit'
+        })
+        .then((token: string) => {
+          this.api.submitEvent(this.form.value, token).subscribe(
+            newEvent => {
+              console.log(newEvent)
+            },
+            err => {
+              console.log(err)
+            }
+          )
+        })
+    })
   }
 
   ngOnInit() {
     this.form = new FormGroup({
       name: new FormControl(null, [
         Validators.required,
-        Validators.maxLength(200)
+        Validators.maxLength(500)
       ]),
       url: new FormControl(null, []),
       startDate: new FormControl(null, [Validators.required]),
       endDate: new FormControl(null, [Validators.required]),
-      type: new FormControl(null, [Validators.required]),
+      type: new FormControl('Convention', [Validators.required]),
       city: new FormControl(null, [Validators.required]),
       state: new FormControl(null, [Validators.required])
     })

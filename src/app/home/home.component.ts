@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadTypeform()
     this.nowDate.setHours(0, 0, 0, 0)
 
     this.getData()
@@ -54,16 +55,10 @@ export class HomeComponent implements OnInit {
 
   getData() {
     this.api.getEvents().subscribe((events: Event[]) => {
-      for (const event of events) {
-        const domain = new URL(event.url).hostname
-
-        event.logo = `https://logo.clearbit.com/${domain}`
-      }
-
       // filter out past events
       this.events = events.filter(event => {
         const endDate = new Date(event.endDate)
-        endDate.setHours(0, 0, 0, 0)
+        endDate.setHours(23, 59, 59, 999)
 
         return this.nowDate.getTime() <= endDate.getTime()
       })
@@ -81,5 +76,25 @@ export class HomeComponent implements OnInit {
         map(text => this.search(text))
       )
     })
+  }
+
+  loadTypeform() {
+    let qs,
+      js,
+      q,
+      s,
+      d = document,
+      gi = d.getElementById,
+      ce = d.createElement,
+      gt = d.getElementsByTagName,
+      id = 'typef_orm_share',
+      b = 'https://embed.typeform.com/'
+    if (!gi.call(d, id)) {
+      js = ce.call(d, 'script')
+      js.id = id
+      js.src = b + 'embed.js'
+      q = gt.call(d, 'script')[0]
+      q.parentNode.insertBefore(js, q)
+    }
   }
 }

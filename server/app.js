@@ -1,8 +1,16 @@
-const app = require('./config/express')
 const config = require('./config')
 
-app.get('/', (req, res) => res.send('Hello World!'))
+const start = async () => {
+  await require('./config/mongoose')()
 
-app.listen(config.port, () =>
-  console.log(`App listening on port ${config.port}!`)
-)
+  const app = require('./config/express')
+
+  app.listen(config.port, () =>
+    console.log(`App listening on port ${config.port}!`)
+  )
+}
+
+start().catch(err => {
+  console.log(err)
+  process.exit(1)
+})

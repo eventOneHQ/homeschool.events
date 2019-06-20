@@ -14,4 +14,12 @@ export class ApiService {
   getEvents(): Observable<Event[]> {
     return this.http.get<Event[]>(`${this.baseUrl}/events`)
   }
+
+  submitEvent(event: Event, token: string): Observable<Event> {
+    return this.http.post<Event>(`${this.baseUrl}/events`, event, {
+      params: {
+        token
+      }
+    })
+  }
 }

@@ -5,11 +5,11 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
-  },
-  {
-    path: 'submit',
-    loadChildren: () => import('./submit/submit.module').then(m => m.SubmitModule)
   }
+  // {
+  //   path: 'submit',
+  //   loadChildren: () => import('./submit/submit.module').then(m => m.SubmitModule)
+  // }
 ]
 
 @NgModule({
