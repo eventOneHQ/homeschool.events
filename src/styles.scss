@@ -1,4 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+$theme-colors: (
+  'primary': #163172
+);
+$primary: #163172;
+
+@import '~argon-design-system-free/assets/scss/argon';
+
 .ngb-highlight {
   background-color: #ff0;
 }

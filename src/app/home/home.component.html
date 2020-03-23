@@ -1,11 +1,11 @@
 <header>
   <div class="row mt-3">
     <div class="col">
-      <h1 class="display-4">homeschool.events</h1>
-      <p class="lead">A database of homeschool events</p>
+      <h1 class="display-3 mb-0">homeschool.events</h1>
+      <p class="lead mt-0">A database of homeschool events</p>
 
       <a
-        class="btn btn-primary btn-raised typeform-share"
+        class="btn btn-primary typeform-share my-3"
         href="https://eventone.typeform.com/to/HwJvuN"
         data-mode="popup"
         target="_blank"
@@ -20,7 +20,7 @@
       <label class="sr-only" for="search">Search</label>
       <input
         type="text"
-        class="form-control mt-3"
+        class="form-control form-control-alternative mt-3"
         id="search"
         name="search"
         placeholder="Search..."
@@ -58,8 +58,10 @@
         </h6>
 
         <p class="card-text">
-          {{ event.location.city }},
-          {{ event.location.state }}
+          {{ event.location.city }}
+          <ng-container *ngIf="event.location.state"
+            >, {{ event.location.state }}</ng-container
+          >
         </p>
       </a>
     </div>
