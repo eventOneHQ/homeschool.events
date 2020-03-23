@@ -3,13 +3,9 @@ const mongoose = require('mongoose')
 const config = require('./config')
 
 module.exports = async () => {
-  mongoose.Promise = Promise
-
   const mongo = await mongoose.connect(config.dbUrl, {
-    autoReconnect: true,
     useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false
+    useUnifiedTopology: true
   })
   const db = mongo.connection.db
 
