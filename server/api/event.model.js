@@ -22,7 +22,7 @@ const eventSchema = new Schema(
     },
     type: {
       type: String,
-      enum: ['Convention'],
+      enum: ['Convention', 'Online Event'],
       required: true
     },
     location: {

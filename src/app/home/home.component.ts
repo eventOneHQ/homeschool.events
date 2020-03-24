@@ -29,6 +29,10 @@ export class HomeComponent implements OnInit {
     return false
   }
 
+  clickEvent() {
+    window.fathom('trackGoal', 'MAIAITUK', 0)
+  }
+
   search(term: string): Event[] {
     if (!this.events) {
       return
