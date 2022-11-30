@@ -22,6 +22,9 @@
     "build": "npm run client:build -- --prod",
     "lint": "npm run client:lint; npm run server:lint"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
     "@angular/animations": "^9.0.7",
     "@angular/common": "^9.0.7",
